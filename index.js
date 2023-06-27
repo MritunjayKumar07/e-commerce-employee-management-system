@@ -9,7 +9,7 @@ import bodyParser from 'body-parser';
 
 const app = express();
 dotenv.config();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.json({limit: "500mb", extended: true}))
