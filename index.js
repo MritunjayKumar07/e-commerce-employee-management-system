@@ -6,8 +6,10 @@ import Router2 from './routes/route2.js';
 import Router3 from './routes/router3.js';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import http from 'http';
 
 const app = express();
+const server = http.createServer(app)
 dotenv.config();
 const PORT = process.env.PORT || 8000;
 app.use(bodyParser.json({ extended: true }));
@@ -21,4 +23,4 @@ app.use('/pay', Router2);
 app.use('/login', Router3);
 Connection();
 
-app.listen(PORT,()=>console.log(`Server Running on PORT no ${PORT}...`));
+server.listen(PORT,()=>console.log(`Server Running on PORT no ${PORT}...`));
